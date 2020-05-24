@@ -8,25 +8,25 @@ services:
       context: .
       dockerfile: Policy.Api/Dockerfile
     ports:
-      - 80
+      - 80:80
   customer:
     image: customer
     build:
       context: .
       dockerfile: Customer.Api/Dockerfile
     ports:
-      - 80
+      - 32002:80
   claim:
     image: claim
     build:
       context: .
       dockerfile: Claim.Api/Dockerfile
     ports:
-      - 80
+      - 32003:80
   payment:
     image: payment
     build:
       context: .
       dockerfile: Payment.Api/Dockerfile
     ports:
-      - 80
+      - 32004:80

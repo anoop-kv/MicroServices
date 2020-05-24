@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Api", "Payment.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Policy.Api", "Policy.Api\Policy.Api.csproj", "{158CF0E3-50B5-42DF-9385-2F429A45AB09}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C16F1E6B-BCF6-4D8A-9BCD-7DB769F3018C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Infrastructure.Tests", "Tests\Common.Infrastructure.Tests\Common.Infrastructure.Tests.csproj", "{5952D0B4-BB64-4373-BB3C-0C19F942060F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +90,20 @@ Global
 		{158CF0E3-50B5-42DF-9385-2F429A45AB09}.Release|x64.Build.0 = Release|Any CPU
 		{158CF0E3-50B5-42DF-9385-2F429A45AB09}.Release|x86.ActiveCfg = Release|Any CPU
 		{158CF0E3-50B5-42DF-9385-2F429A45AB09}.Release|x86.Build.0 = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|x64.Build.0 = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Debug|x86.Build.0 = Debug|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|x64.ActiveCfg = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|x64.Build.0 = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|x86.ActiveCfg = Release|Any CPU
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5952D0B4-BB64-4373-BB3C-0C19F942060F} = {C16F1E6B-BCF6-4D8A-9BCD-7DB769F3018C}
 	EndGlobalSection
 EndGlobal

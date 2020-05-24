@@ -1,6 +1,10 @@
 using System.Threading.Tasks;
+using Common.Infrastructure.Contract;
 
-public interface IKafkaProducer
+namespace Common.Infrastructure.Kafka
 {
-    Task SendAsync(IEvent @event, string topic);
+    public interface IKafkaProducer
+    {
+        Task SendAsync(IEvent @event, string topic);
+    }
 }

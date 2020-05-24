@@ -1,6 +1,7 @@
 namespace Common.Infrastructure.Contract
 {
-    public interface IEvent
+    public interface ICommand
     {
+        
     }
 }
