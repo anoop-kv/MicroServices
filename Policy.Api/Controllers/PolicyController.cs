@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Common.Infrastructure.Contract;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Policy.Api.Commands;
 
 namespace Payment.Api.Controllers
@@ -27,7 +22,8 @@ namespace Payment.Api.Controllers
             await commandHandler.HandleAsync(new PurchasePolicyCommand
             {
                 
-            }, CancellationToken.None);
+            });
+
             return "OK";
         }
     }

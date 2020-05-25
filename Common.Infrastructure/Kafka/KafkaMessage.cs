@@ -1,4 +1,4 @@
-namespace Common.Infrastructure.Contract
+namespace Common.Infrastructure.Kafka
 {
     public class KafkaMessage 
     {

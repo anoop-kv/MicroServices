@@ -5,6 +5,6 @@ namespace Common.Infrastructure.Contract
 {
     public interface ICommandHandler<in TCommand> where TCommand : ICommand
     {
-        Task HandleAsync(TCommand command, CancellationToken cancellationToken);
+        Task HandleAsync(TCommand command);
     }
 }
