@@ -7,19 +7,19 @@ namespace Policy.Api.Data
 {
     public class PolicyRepository : Repository, IPolicyRepository
     {
-        IMongoCollection<Policy> Policies => MongoDatabase.GetCollection<Policy>("Policy");
+        IMongoCollection<PolicyDto> Policies => MongoDatabase.GetCollection<PolicyDto>("Policy");
 
         public PolicyRepository(MongoConfig config) : base(config)
         {
         }
 
-        public async Task<Policy> GetByIdAsync(Guid id)
+        public async Task<PolicyDto> GetByIdAsync(string id)
         {
-            return await Task.FromResult(Policies.Find(c => c.Id == id, new FindOptions { AllowPartialResults = false })
+            return await Task.FromResult(Policies.Find(c => c.PolicyId == id, new FindOptions { AllowPartialResults = false })
                                     .FirstOrDefault());
         }
 
-        public async Task SaveAsync(Policy policy)
+        public async Task SaveAsync(PolicyDto policy)
         {
             await Policies.InsertOneAsync(policy, new InsertOneOptions { BypassDocumentValidation = false });
         }

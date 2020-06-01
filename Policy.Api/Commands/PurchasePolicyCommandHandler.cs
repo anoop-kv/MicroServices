@@ -1,5 +1,3 @@
-using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Common.Infrastructure.Contract;
 using Common.Infrastructure.Kafka;
@@ -10,7 +8,7 @@ namespace Policy.Api.Commands
     public class PurchasePolicyCommandHandler : ICommandHandler<PurchasePolicyCommand>
     {
         private readonly IKafkaProducer kafkaProducer;
-        private readonly IPolicyRepository policyRepository; 
+        private readonly IPolicyRepository policyRepository;
 
         public PurchasePolicyCommandHandler(IKafkaProducer kafkaProducer, IPolicyRepository policyRepository)
         {
@@ -20,16 +18,28 @@ namespace Policy.Api.Commands
 
         public async Task HandleAsync(PurchasePolicyCommand command)
         {
-            await policyRepository.SaveAsync(new Data.Policy());
+            await policyRepository.SaveAsync(MapToDto(command));
 
             await kafkaProducer.SendAsync(new PolicyPurchased
             {
-                AccountNumber = "account123",
-                CoverAmount = 100,
-                InceptionDate = DateTime.Now,
-                PolicyHolder = "Anoop Venugopalan",
-                PolicyId = "Policy123"
+                AccountNumber = command.AccountNumber,
+                CoverAmount = command.CoverAmount,
+                InceptionDate = command.InceptionDate,
+                PolicyHolder = command.PolicyHolder,
+                PolicyId = command.PolicyId
             }, "Policy");
+        }
+
+        private static PolicyDto MapToDto(PurchasePolicyCommand command)
+        {
+            return new PolicyDto
+            {
+                AccountNumber = command.AccountNumber,
+                CoverAmount = command.CoverAmount,
+                InceptionDate = command.InceptionDate,
+                PolicyHolder = command.PolicyHolder,
+                PolicyId = command.PolicyId
+            };
         }
     }
 }

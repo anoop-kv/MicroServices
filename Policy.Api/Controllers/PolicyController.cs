@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Common.Infrastructure.Contract;
 using Microsoft.AspNetCore.Mvc;
 using Policy.Api.Commands;
+using Policy.Api.Data;
 
 namespace Payment.Api.Controllers
 {
@@ -16,15 +17,24 @@ namespace Payment.Api.Controllers
             this.commandHandler = commandHandler;
         }
 
-        [HttpGet]
-        public async Task<string> Get()
+        [HttpPost]
+        public async Task<string> Purchase([FromBody] PolicyDto policy)
         {
-            await commandHandler.HandleAsync(new PurchasePolicyCommand
-            {
-                
-            });
+            await commandHandler.HandleAsync(MapToCommand(policy));
 
             return "OK";
+        }
+
+        private static PurchasePolicyCommand MapToCommand(PolicyDto policy)
+        {
+            return new PurchasePolicyCommand
+            {
+              AccountNumber = policy.AccountNumber,
+              CoverAmount = policy.CoverAmount,
+              InceptionDate = policy.InceptionDate,
+              PolicyHolder = policy.PolicyHolder,
+              PolicyId = policy.PolicyId
+            };
         }
     }
 }

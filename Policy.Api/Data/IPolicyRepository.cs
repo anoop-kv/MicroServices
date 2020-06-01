@@ -6,8 +6,8 @@ namespace Policy.Api.Data
 {
     public interface IPolicyRepository 
     {
-        Task<Policy> GetByIdAsync(Guid id);
+        Task<PolicyDto> GetByIdAsync(string id);
 
-        Task SaveAsync(Policy policy);
+        Task SaveAsync(PolicyDto policy);
     }
 }

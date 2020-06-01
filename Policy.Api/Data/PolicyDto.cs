@@ -1,9 +1,8 @@
 using System;
-using Common.Infrastructure.Contract;
 
-namespace Policy.Api.Commands
+namespace Policy.Api.Data
 {
-    public class PurchasePolicyCommand : ICommand
+    public class PolicyDto
     {
         public string PolicyId { get; set; }
 
